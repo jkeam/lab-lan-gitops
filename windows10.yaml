@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: windows
+    path: vms/windows
     repoURL: https://github.com/jkeam/lab-lan-config.git
     targetRevision: main
     kustomize:
