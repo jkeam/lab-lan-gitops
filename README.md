@@ -15,3 +15,9 @@ oc apply -f ./httpd-app.yaml
 ```shell
 oc apply -f ./windows10.yaml
 ```
+
+### Fedora
+
+```shell
+oc apply -f ./fedora.yaml
+```
