@@ -14,7 +14,11 @@ spec:
     path: httpd-server/overlays/default
     repoURL: https://github.com/jkeam/lab-lan-config.git
     targetRevision: main
+    kustomize:
+      namespace: cluster-services
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
     - CreateNamespace=true
