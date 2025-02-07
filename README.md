@@ -1,6 +1,6 @@
 # Lab Lan GitOps
 
-Homelab GItops Repo
+Homelab Gitops Repo
 
 ## Deploy
 
