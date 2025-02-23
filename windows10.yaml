@@ -16,6 +16,8 @@ spec:
     path: vms/windows
     repoURL: https://github.com/jkeam/lab-lan-config.git
     targetRevision: main
+    kustomize:
+      namespace: vms
   syncPolicy:
     automated:
       prune: true
