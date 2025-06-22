@@ -12,7 +12,7 @@ spec:
     namespace: hello-go
   source:
     chart: hello-go
-    repoURL: https://keamchart.yaml
+    repoURL: https://keamchart.com
     targetRevision: 0.0.1
     helm:
       releaseName: hello-go
