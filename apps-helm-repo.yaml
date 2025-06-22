@@ -3,14 +3,14 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "4"
-  name: apps
+  name: apps-helm-repo
   namespace: openshift-gitops
 spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
   source:
-    path: apps
+    path: apps-helm-repo
     repoURL: https://github.com/jkeam/lab-lan-config.git
     targetRevision: main
   syncPolicy:
