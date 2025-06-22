@@ -2,15 +2,13 @@
 
 Homelab Gitops Repo
 
-## Deploy
-
-### Apache Server
+## Apache Server
 
 ```shell
 oc apply -f ./httpd-app.yaml
 ```
 
-### Windows 10
+## Windows 10
 
 ```shell
 oc apply -f ./windows10.yaml
@@ -31,8 +29,17 @@ And lastly enable `Allow remote connections to this computer`
 and then check `Firewall` and `Allow an app through a firewall`
 and enable all `Remote Desktop`.
 
-### Fedora
+## Fedora
 
 ```shell
 oc apply -f ./fedora.yaml
+```
+
+## Apps
+
+```shell
+oc apply -f ./apps-helm-repo.yaml
+
+# example app from helm chart repo above
+oc apply -f ./hello-go.yaml
 ```
