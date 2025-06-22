@@ -3,11 +3,10 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "4"
-  name: hello-go
+  name: apps
   namespace: openshift-gitops
 spec:
   destination:
-    namespace: hello-go
     server: https://kubernetes.default.svc
   project: default
   source:
