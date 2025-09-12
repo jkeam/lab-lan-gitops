@@ -3,7 +3,7 @@ kind: Application
 metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  name: finance
+  name: finance-app
   namespace: openshift-gitops
 spec:
   destination:
