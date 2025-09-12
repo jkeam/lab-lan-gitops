@@ -5,9 +5,6 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
   name: finance-db
   namespace: openshift-gitops
-  annotations:
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/sync-wave: -1
 spec:
   destination:
     namespace: finance
