@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: proxy-app
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: proxy
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: proxy
+    repoURL: https://github.com/jkeam/lab-lan-config.git
+    targetRevision: main
+    kustomize:
+      namespace: proxy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
