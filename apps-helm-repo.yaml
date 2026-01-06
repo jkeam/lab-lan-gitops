@@ -10,7 +10,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    path: apps-helm-repo
+    path: helm-repo
     repoURL: https://github.com/jkeam/lab-lan-config.git
     targetRevision: main
   syncPolicy:
