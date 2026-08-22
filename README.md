@@ -43,3 +43,15 @@ oc apply -f ./apps-helm-repo.yaml
 # example app from helm chart repo above
 oc apply -f ./hello-go.yaml
 ```
+
+## OpenClaw
+
+### Nibbler
+
+```shell
+oc new-project nibbler-claw
+oc create secret generic openrouter-api-key \
+  --from-literal=api-key=YOUR_OPENROUTER_API_KEY \
+  -n nibbler-claw
+oc apply -f ./openclaw-nibbler.yaml
+```

@@ -1,0 +1,11 @@
+apiVersion: claw.sandbox.redhat.com/v1alpha1
+kind: Claw
+metadata:
+  name: nibbler
+spec:
+  credentials:
+    - name: openrouter
+      provider: openrouter
+      secretRef:
+        - name: openrouter-api-key
+          key: api-key
