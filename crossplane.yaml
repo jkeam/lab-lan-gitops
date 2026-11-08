@@ -9,6 +9,87 @@ metadata:
     kubernetes.io/metadata.name: crossplane-system
 ---
 
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: all-secrets-role
+  namespace: crossplane-system
+rules:
+- apiGroups: [""]
+  resources: ["secrets", "serviceaccounts", "services"]
+  verbs: ["*"]
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: all-secrets-argocd-binding
+  namespace: crossplane-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: all-secrets-role
+subjects:
+- kind: ServiceAccount
+  name: openshift-gitops-argocd-application-controller
+  namespace: openshift-gitops
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: all-apps-role
+  namespace: crossplane-system
+rules:
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["*"]
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: all-apps-argocd-binding
+  namespace: crossplane-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: all-apps-role
+subjects:
+- kind: ServiceAccount
+  name: openshift-gitops-argocd-application-controller
+  namespace: openshift-gitops
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: crossplane-anyuid
+  namespace: crossplane-system
+subjects:
+  - kind: ServiceAccount
+    name: crossplane
+    namespace: crossplane-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:anyuid
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rbac-manager-anyuid
+  namespace: crossplane-system
+subjects:
+  - kind: ServiceAccount
+    name: rbac-manager
+    namespace: crossplane-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:anyuid
+---
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
