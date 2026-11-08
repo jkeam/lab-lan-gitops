@@ -55,3 +55,10 @@ oc create secret generic openrouter-api-key \
   -n nibbler-claw
 oc apply -f ./openclaw-nibbler.yaml
 ```
+
+## Crossplane
+
+```shell
+oc create secret generic do-creds -n crossplane-system --from-literal=credentials='{"token":"dop_v1_replaceme"}'
+oc create -f ./crossplane.yaml
+```
